@@ -16,11 +16,23 @@ namespace CiudadesCombobox.API
         private const string EXTENSION = ".txt";
 
 
+        public static void EscribirFichero(string nombre, string texto)
+        {
+            // Recursos
+            StreamWriter escritor;
+
+            escritor = File.AppendText(nombre);
+
+            escritor.WriteLine(texto);
+
+            escritor.Close();
+        }
 
        private static void CrearDirectorio()
         {
             Directory.CreateDirectory(DIRECTORIO);          
         }
+
         public static void ValidarExistenciaDirectorio()
         {
             // En caso de que no exista, se creará automaticamente

@@ -34,8 +34,6 @@ namespace CiudadesCombobox
                 // Asignará el contenido del direcotio al combobox
                 comboBoxProvincias.Items.AddRange(API.APICiudad.ConsultarDirectorio());
 
-
-
             }
             catch (Exception error) 
             { 
@@ -48,14 +46,53 @@ namespace CiudadesCombobox
             }
         }
 
-        private void buttonAgregar_Click(object sender, EventArgs e)
+        private void Controlador_Click(object sender, EventArgs e)
         {
+            // Recursos
+            string mensajeError = "";
+            bool esValido = true; // Inicializado previamente
+            Button boton = (Button)sender;
 
+            try
+            {
+                switch (boton.Name)
+                {
+                    case "buttonAgregar":
+                        APICiudad.EscribirFichero(comboBoxProvincias.SelectedItem.ToString(), textBoxAgregarCiudad.Text);
+                        break;
+                }              
+            }
+            catch (Exception error)
+            {
+                esValido = false;
+                mensajeError = error.Message;
+            }
+            finally
+            {
+                if (!esValido) UI.MostrarError(mensajeError);
+            }
         }
 
         private void comboBoxProvincias_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Recurosos
+            string mensajeError = "";
+            bool esValido = true; // Inicializado previamente
+
+            try 
+            { 
+            // Cargar valores del archivo provincia en ComboBoxCiudades
             comboBoxCiudades.Items.AddRange(APICiudad.ConsultarFichero(comboBoxProvincias.SelectedItem.ToString()));
+            }
+            catch (Exception error)
+            {
+                esValido = false;
+                mensajeError = error.Message;
+            }
+            finally
+            {
+                if (!esValido) UI.MostrarError(mensajeError);
+            }
 
         }
     }
