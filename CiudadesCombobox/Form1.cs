@@ -34,7 +34,6 @@ namespace CiudadesCombobox
                 // Asignará el contenido del direcotio al combobox
                 comboBoxProvincias.Items.AddRange(API.APICiudad.ConsultarDirectorio());
 
-                APICiudad.ConsultarFichero("Alicante.txt");
 
 
             }
@@ -47,6 +46,17 @@ namespace CiudadesCombobox
             {
                 if (!esValido) UI.MostrarError(mensajeError);
             }
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxProvincias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxCiudades.Items.AddRange(APICiudad.ConsultarFichero(comboBoxProvincias.SelectedItem.ToString()));
+
         }
     }
 }

@@ -46,7 +46,7 @@ namespace CiudadesCombobox.API
 
 
             // Contenido del fichero al array
-            ListaCiudades = File.ReadAllLines(DIRECTORIO + nombre);;
+            ListaCiudades = File.ReadAllLines(nombre);
 
             return ListaCiudades;
 
