@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CiudadesCombobox.API;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,33 @@ namespace CiudadesCombobox
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBoxCiudades.Items.AddRange(API.APICiudad.ConsultarDirectorio()); 
+
+            // Recursos
+            string mensajeError = "";
+            bool esValido = true; // Inicializado previamente
+
+            try
+            {
+
+                // En caso de que no exista, se creará automaticamente
+                APICiudad.ValidarExistenciaDirectorio();
+
+                // Asignará el contenido del direcotio al combobox
+                comboBoxProvincias.Items.AddRange(API.APICiudad.ConsultarDirectorio());
+
+                APICiudad.ConsultarFichero("Alicante.txt");
+
+
+            }
+            catch (Exception error) 
+            { 
+                esValido = false;
+                mensajeError = error.Message;
+            }
+            finally
+            {
+                if (!esValido) UI.MostrarError(mensajeError);
+            }
         }
     }
 }

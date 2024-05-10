@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\APICiudad.cs" />
+    <Compile Include="API\UI.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
