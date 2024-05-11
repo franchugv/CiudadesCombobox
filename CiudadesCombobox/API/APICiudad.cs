@@ -48,6 +48,14 @@ namespace CiudadesCombobox.API
 
             ListaDirectorio = Directory.GetFiles(DIRECTORIO);
 
+            // Pasar de: Ciudades\Ciudad.txt a Ciudad
+            for (int indice = 0; indice < ListaDirectorio.Length; indice++)
+            {
+                ListaDirectorio[indice] = ListaDirectorio[indice].Substring(ListaDirectorio[indice].IndexOf('\\') + 1, ListaDirectorio[indice].IndexOf('.') - ListaDirectorio[indice].IndexOf('\\') - 1);
+            }
+
+
+
             return ListaDirectorio;
         }
 
@@ -58,7 +66,9 @@ namespace CiudadesCombobox.API
 
 
             // Contenido del fichero al array
-            ListaCiudades = File.ReadAllLines(nombre);
+            ListaCiudades = File.ReadAllLines(DIRECTORIO+nombre+EXTENSION);
+
+
 
             return ListaCiudades;
 

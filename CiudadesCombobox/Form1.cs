@@ -59,6 +59,7 @@ namespace CiudadesCombobox
                 {
                     case "buttonAgregar":
                         APICiudad.EscribirFichero(comboBoxProvincias.SelectedItem.ToString(), textBoxAgregarCiudad.Text);
+                        textBoxAgregarCiudad.Clear();
                         break;
                 }              
             }
@@ -78,6 +79,8 @@ namespace CiudadesCombobox
             // Recurosos
             string mensajeError = "";
             bool esValido = true; // Inicializado previamente
+
+            comboBoxCiudades.Items.Clear(); // Limpiamos el comboBox cada vez que cambiemos de provincia
 
             try 
             { 
