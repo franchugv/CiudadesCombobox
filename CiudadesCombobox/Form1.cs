@@ -31,7 +31,7 @@ namespace CiudadesCombobox
                 // En caso de que no exista, se creará automaticamente
                 APICiudad.ValidarExistenciaDirectorio();
 
-                // Asignará el contenido del direcotio al combobox
+                // Asignará el contenido del directorio al combobox
                 comboBoxProvincias.Items.AddRange(API.APICiudad.ConsultarDirectorio());
 
             }
@@ -51,6 +51,11 @@ namespace CiudadesCombobox
             // Recursos
             string mensajeError = "";
             bool esValido = true; // Inicializado previamente
+
+            string[] ListaCiudades = comboBoxCiudades.Items.Cast<string>().ToArray();
+            string ContenidoAgregarCiudad = textBoxAgregarCiudad.Text;
+            string ContenidoSeleccionadoCBProvincias = comboBoxProvincias.SelectedItem.ToString();
+
             Button boton = (Button)sender;
 
             try
@@ -58,7 +63,7 @@ namespace CiudadesCombobox
                 switch (boton.Name)
                 {
                     case "buttonAgregar":
-                        APICiudad.EscribirFichero(comboBoxProvincias.SelectedItem.ToString(), textBoxAgregarCiudad.Text);
+                        AgregarCiudad(ListaCiudades, ContenidoAgregarCiudad, ContenidoSeleccionadoCBProvincias);
                         textBoxAgregarCiudad.Clear();
                         break;
                 }              
@@ -73,6 +78,7 @@ namespace CiudadesCombobox
                 if (!esValido) UI.MostrarError(mensajeError);
             }
         }
+
 
         private void comboBoxProvincias_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -95,8 +101,45 @@ namespace CiudadesCombobox
             finally
             {
                 if (!esValido) UI.MostrarError(mensajeError);
+                else buttonAgregar.Enabled = true;
             }
 
         }
+
+        private void textBoxAgregarCiudad_Leave(object sender, EventArgs e)
+        {
+             // Recursos
+            string mensajeError = "";
+            bool esValido = true; // Inicializado previamente
+
+            try
+            {
+                Validacion.ValidarCadena(textBoxAgregarCiudad.Text);
+            }
+            catch (Exception error)
+            {
+                esValido = false;
+                mensajeError = error.Message;
+            }
+            finally
+            {
+                if (!esValido)
+                {
+                    UI.MostrarError(mensajeError);
+                    textBoxAgregarCiudad.Focus();
+                }
+            }
+        }
+
+
+        // Funcionalidades Botones
+        private static void AgregarCiudad(string[] ListaCiudades, string ContenidoAgregarCiudad, string ContenidoSeleccionadoCBProvincias)
+        {
+            Validacion.ValidarRepeticon(ContenidoAgregarCiudad, ListaCiudades);
+            APICiudad.EscribirFichero(ContenidoSeleccionadoCBProvincias, ContenidoAgregarCiudad);
+            UI.MostrarMensaje($"La Ciudad {ContenidoAgregarCiudad} a sido agregada correctamente");
+        }
+
+
     }
 }

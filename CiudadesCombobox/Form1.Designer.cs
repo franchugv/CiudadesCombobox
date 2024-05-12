@@ -40,16 +40,18 @@
             // textBoxAgregarCiudad
             // 
             this.textBoxAgregarCiudad.Location = new System.Drawing.Point(143, 135);
+            this.textBoxAgregarCiudad.MaxLength = 50;
             this.textBoxAgregarCiudad.Name = "textBoxAgregarCiudad";
-            this.textBoxAgregarCiudad.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAgregarCiudad.Size = new System.Drawing.Size(274, 20);
             this.textBoxAgregarCiudad.TabIndex = 0;
+            this.textBoxAgregarCiudad.Leave += new System.EventHandler(this.textBoxAgregarCiudad_Leave);
             // 
             // comboBoxProvincias
             // 
             this.comboBoxProvincias.FormattingEnabled = true;
             this.comboBoxProvincias.Location = new System.Drawing.Point(143, 47);
             this.comboBoxProvincias.Name = "comboBoxProvincias";
-            this.comboBoxProvincias.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxProvincias.Size = new System.Drawing.Size(274, 21);
             this.comboBoxProvincias.TabIndex = 1;
             this.comboBoxProvincias.SelectedIndexChanged += new System.EventHandler(this.comboBoxProvincias_SelectedIndexChanged);
             // 
@@ -58,7 +60,7 @@
             this.comboBoxCiudades.FormattingEnabled = true;
             this.comboBoxCiudades.Location = new System.Drawing.Point(143, 89);
             this.comboBoxCiudades.Name = "comboBoxCiudades";
-            this.comboBoxCiudades.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCiudades.Size = new System.Drawing.Size(274, 21);
             this.comboBoxCiudades.TabIndex = 2;
             // 
             // labelProvincias
@@ -90,9 +92,10 @@
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(342, 131);
+            this.buttonAgregar.Enabled = false;
+            this.buttonAgregar.Location = new System.Drawing.Point(143, 179);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAgregar.Size = new System.Drawing.Size(153, 23);
             this.buttonAgregar.TabIndex = 6;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;

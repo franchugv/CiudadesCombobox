@@ -13,5 +13,10 @@ namespace CiudadesCombobox.API
         {
             MessageBox.Show($"Error: {error}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void MostrarMensaje(string cadena)
+        {
+            MessageBox.Show(cadena, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

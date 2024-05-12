@@ -21,7 +21,7 @@ namespace CiudadesCombobox.API
             // Recursos
             StreamWriter escritor;
 
-            escritor = File.AppendText(nombre);
+            escritor = File.AppendText(DIRECTORIO+nombre+EXTENSION);
 
             escritor.WriteLine(texto);
 
@@ -35,7 +35,7 @@ namespace CiudadesCombobox.API
 
         public static void ValidarExistenciaDirectorio()
         {
-            // En caso de que no exista, se creará automaticamente
+            // En caso de que no exista, se creará automáticamente
             if (!Directory.Exists(DIRECTORIO)) CrearDirectorio();
         }
 
@@ -53,8 +53,6 @@ namespace CiudadesCombobox.API
             {
                 ListaDirectorio[indice] = ListaDirectorio[indice].Substring(ListaDirectorio[indice].IndexOf('\\') + 1, ListaDirectorio[indice].IndexOf('.') - ListaDirectorio[indice].IndexOf('\\') - 1);
             }
-
-
 
             return ListaDirectorio;
         }
