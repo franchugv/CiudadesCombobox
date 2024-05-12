@@ -58,6 +58,7 @@
             // 
             // comboBoxCiudades
             // 
+            this.comboBoxCiudades.Enabled = false;
             this.comboBoxCiudades.FormattingEnabled = true;
             this.comboBoxCiudades.Location = new System.Drawing.Point(143, 89);
             this.comboBoxCiudades.Name = "comboBoxCiudades";

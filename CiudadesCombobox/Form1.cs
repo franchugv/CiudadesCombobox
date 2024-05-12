@@ -52,11 +52,25 @@ namespace CiudadesCombobox
             string mensajeError = "";
             bool esValido = true; // Inicializado previamente
 
+            // Inicializar variables con el contenido de los contenedores
+
+            // Inicializamos un array con el contenido del comboBox de ciudades: Málaga, Sevilla...
             string[] ListaCiudades = comboBoxCiudades.Items.Cast<string>().ToArray();
+
+            // Inicializamos esta cadena con el contenido del textBox: Cabra, Baena...
             string ContenidoAgregarCiudad = textBoxAgregarCiudad.Text;
+
+            // Inicializamos esta cadena con el Item seleleccionado del comBoBox provincias
             string ContenidoSeleccionadoCBProvincias = comboBoxProvincias.SelectedItem.ToString();
 
             Button boton = (Button)sender;
+
+
+            // Inicializamos los objetos a false
+            buttonAgregar.Enabled = false;
+            textBoxAgregarCiudad.Enabled = false;
+            comboBoxCiudades.Enabled = false;
+
 
             try
             {
@@ -105,6 +119,7 @@ namespace CiudadesCombobox
                 {
                     buttonAgregar.Enabled = true; // Activa el botón una vez seleccionemos una provincia
                     textBoxAgregarCiudad.Enabled = true;
+                    comboBoxCiudades.Enabled = true;
                 }
             }
 
@@ -130,7 +145,8 @@ namespace CiudadesCombobox
                 if (!esValido)
                 {
                     UI.MostrarError(mensajeError);
-                    textBoxAgregarCiudad.Focus();
+                    textBoxAgregarCiudad.Clear(); // Lo limpiamos para que el usuario no pueda guardar cadenas incorrectas
+                    // textBoxAgregarCiudad.Focus(); Es demasiado molesto
                 }
             }
         }
