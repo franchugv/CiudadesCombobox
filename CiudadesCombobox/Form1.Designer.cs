@@ -39,6 +39,7 @@
             // 
             // textBoxAgregarCiudad
             // 
+            this.textBoxAgregarCiudad.Enabled = false;
             this.textBoxAgregarCiudad.Location = new System.Drawing.Point(143, 135);
             this.textBoxAgregarCiudad.MaxLength = 50;
             this.textBoxAgregarCiudad.Name = "textBoxAgregarCiudad";

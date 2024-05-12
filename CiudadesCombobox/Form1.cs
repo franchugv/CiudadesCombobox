@@ -101,7 +101,11 @@ namespace CiudadesCombobox
             finally
             {
                 if (!esValido) UI.MostrarError(mensajeError);
-                else buttonAgregar.Enabled = true;
+                else
+                {
+                    buttonAgregar.Enabled = true; // Activa el botón una vez seleccionemos una provincia
+                    textBoxAgregarCiudad.Enabled = true;
+                }
             }
 
         }
