@@ -35,6 +35,7 @@
             this.labelCiudad = new System.Windows.Forms.Label();
             this.labelAgregarCiudad = new System.Windows.Forms.Label();
             this.buttonAgregar = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxAgregarCiudad
@@ -104,11 +105,21 @@
             this.buttonAgregar.UseVisualStyleBackColor = true;
             this.buttonAgregar.Click += new System.EventHandler(this.Controlador_Click);
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Crimson;
+            this.labelError.Location = new System.Drawing.Point(140, 119);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 13);
+            this.labelError.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 225);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.labelAgregarCiudad);
             this.Controls.Add(this.labelCiudad);
@@ -133,6 +144,7 @@
         private System.Windows.Forms.Label labelCiudad;
         private System.Windows.Forms.Label labelAgregarCiudad;
         private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Label labelError;
     }
 }
 

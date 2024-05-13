@@ -128,7 +128,8 @@ namespace CiudadesCombobox
 
         private void textBoxAgregarCiudad_Leave(object sender, EventArgs e)
         {
-             // Recursos
+            // Recursos
+            labelError.Text = "";
             string mensajeError = "";
             bool esValido = true; // Inicializado previamente
 
@@ -145,9 +146,10 @@ namespace CiudadesCombobox
             {
                 if (!esValido)
                 {
-                    UI.MostrarError(mensajeError);
+                    labelError.Text = mensajeError;
                     textBoxAgregarCiudad.Clear(); // Lo limpiamos para que el usuario no pueda guardar cadenas incorrectas
                     // textBoxAgregarCiudad.Focus(); Es demasiado molesto
+
                 }
             }
         }
@@ -156,6 +158,7 @@ namespace CiudadesCombobox
         // Funcionalidades Botones
         private static void AgregarCiudad(string[] ListaCiudades, string ContenidoAgregarCiudad, string ContenidoSeleccionadoCBProvincias)
         {
+            Validacion.ValidarCadena(ContenidoAgregarCiudad);
             // Valida que no se repita la ciudad proporcionada
             Validacion.ValidarRepeticon(ContenidoAgregarCiudad, ListaCiudades);
 
