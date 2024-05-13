@@ -101,6 +101,7 @@ namespace CiudadesCombobox
             bool esValido = true; // Inicializado previamente
 
             comboBoxCiudades.Items.Clear(); // Limpiamos el comboBox cada vez que cambiemos de provincia
+            comboBoxCiudades.Text = "";
 
             try 
             { 
