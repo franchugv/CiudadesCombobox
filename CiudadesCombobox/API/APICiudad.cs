@@ -55,6 +55,7 @@ namespace CiudadesCombobox.API
 
                 cadena = cadena.Substring(cadena.IndexOf("\\") + 1);
                 cadena = cadena.Substring(0, cadena.IndexOf(".")); // Con es 0 estamos estableciendo el Índice desde el principio
+
                 //ListaDirectorio[indice] = ListaDirectorio[indice].Substring(ListaDirectorio[indice].IndexOf("\\") + 1, ListaDirectorio[indice].IndexOf(".") - ListaDirectorio[indice].IndexOf("\\") - 1);
             }
 
