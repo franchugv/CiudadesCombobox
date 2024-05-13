@@ -158,6 +158,7 @@ namespace CiudadesCombobox
         // Funcionalidades Botones
         private static void AgregarCiudad(string[] ListaCiudades, string ContenidoAgregarCiudad, string ContenidoSeleccionadoCBProvincias)
         {
+            // Validar Nombre de ciudad, Bien --> Málaga, Mal --> a o ""
             Validacion.ValidarCadena(ContenidoAgregarCiudad);
             // Valida que no se repita la ciudad proporcionada
             Validacion.ValidarRepeticon(ContenidoAgregarCiudad, ListaCiudades);
