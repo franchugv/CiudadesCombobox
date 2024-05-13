@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CiudadesCombobox
 {
-    public partial class Form1 : Form
+    public partial class FormCiudades : Form
     {
-        public Form1()
+        public FormCiudades()
         {
             InitializeComponent();
         }

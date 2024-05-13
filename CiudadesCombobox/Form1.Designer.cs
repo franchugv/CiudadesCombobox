@@ -1,6 +1,6 @@
 ﻿namespace CiudadesCombobox
 {
-    partial class Form1
+    partial class FormCiudades
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -114,7 +114,7 @@
             this.labelError.Size = new System.Drawing.Size(0, 13);
             this.labelError.TabIndex = 7;
             // 
-            // Form1
+            // FormCiudades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,8 +127,8 @@
             this.Controls.Add(this.comboBoxCiudades);
             this.Controls.Add(this.comboBoxProvincias);
             this.Controls.Add(this.textBoxAgregarCiudad);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormCiudades";
+            this.Text = "Ciudades";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
