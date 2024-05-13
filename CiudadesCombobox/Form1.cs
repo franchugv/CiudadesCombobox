@@ -160,6 +160,7 @@ namespace CiudadesCombobox
         {
             // Validar Nombre de ciudad, Bien --> Málaga, Mal --> a o ""
             Validacion.ValidarCadena(ContenidoAgregarCiudad);
+
             // Valida que no se repita la ciudad proporcionada
             Validacion.ValidarRepeticon(ContenidoAgregarCiudad, ListaCiudades);
 
@@ -173,3 +174,4 @@ namespace CiudadesCombobox
 
     }
 }
+

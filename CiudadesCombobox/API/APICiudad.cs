@@ -44,14 +44,18 @@ namespace CiudadesCombobox.API
             // RECURSOS 
 
             string[] ListaDirectorio;
-
+            string cadena;
 
             ListaDirectorio = Directory.GetFiles(DIRECTORIO);
 
             // Pasar de: Ciudades\Ciudad.txt a Ciudad
             for (int indice = 0; indice < ListaDirectorio.Length; indice++)
             {
-                ListaDirectorio[indice] = ListaDirectorio[indice].Substring(ListaDirectorio[indice].IndexOf('\\') + 1, ListaDirectorio[indice].IndexOf('.') - ListaDirectorio[indice].IndexOf('\\') - 1);
+                cadena = ListaDirectorio[indice];
+
+                cadena = cadena.Substring(cadena.IndexOf("\\") + 1);
+                cadena = cadena.Substring(0, cadena.IndexOf(".")); // Con es 0 estamos estableciendo el Índice desde el principio
+                //ListaDirectorio[indice] = ListaDirectorio[indice].Substring(ListaDirectorio[indice].IndexOf("\\") + 1, ListaDirectorio[indice].IndexOf(".") - ListaDirectorio[indice].IndexOf("\\") - 1);
             }
 
             return ListaDirectorio;
