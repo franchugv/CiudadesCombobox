@@ -156,8 +156,13 @@ namespace CiudadesCombobox
         // Funcionalidades Botones
         private static void AgregarCiudad(string[] ListaCiudades, string ContenidoAgregarCiudad, string ContenidoSeleccionadoCBProvincias)
         {
+            // Valida que no se repita la ciudad proporcionada
             Validacion.ValidarRepeticon(ContenidoAgregarCiudad, ListaCiudades);
+
+            // Añade una ciudad en el fichero seleccionado
             APICiudad.EscribirFichero(ContenidoSeleccionadoCBProvincias, ContenidoAgregarCiudad);
+
+            // Muestra un mensaje de enhorabuenaz
             UI.MostrarMensaje($"La Ciudad {ContenidoAgregarCiudad} a sido agregada correctamente");
         }
 

@@ -63,6 +63,7 @@
             this.comboBoxCiudades.Location = new System.Drawing.Point(143, 89);
             this.comboBoxCiudades.Name = "comboBoxCiudades";
             this.comboBoxCiudades.Size = new System.Drawing.Size(274, 21);
+            this.comboBoxCiudades.Sorted = true;
             this.comboBoxCiudades.TabIndex = 2;
             // 
             // labelProvincias
