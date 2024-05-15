@@ -28,7 +28,9 @@ namespace CiudadesCombobox
         public static void ValidarCadena(string cadena)
         {
             const int MIN_TAM = 3;
+           float aux = 0.0f;
 
+            if (Single.TryParse(cadena, out aux)) throw new Exception("Números no permitidos");
             if (cadena.Length < MIN_TAM) throw new FormatException("La cadena tiene un tamaño inferior al permitido");
         }
     }
