@@ -16,18 +16,6 @@ namespace CiudadesCombobox.API
         private const string EXTENSION = ".txt";
 
 
-        public static void EscribirFichero(string nombre, string texto)
-        {
-            // Recursos
-            StreamWriter escritor;
-
-            escritor = File.AppendText(DIRECTORIO+nombre+EXTENSION);
-
-            escritor.WriteLine(texto);
-
-            escritor.Close();
-        }
-
        private static void CrearDirectorio()
         {
             Directory.CreateDirectory(DIRECTORIO);          
@@ -57,7 +45,6 @@ namespace CiudadesCombobox.API
                 cadena = cadena.Substring(0, cadena.IndexOf(".")); // Con es 0 estamos estableciendo el Índice desde el principio
 
                 ListaDirectorio[indice] = cadena;
-                //ListaDirectorio[indice] = ListaDirectorio[indice].Substring(ListaDirectorio[indice].IndexOf("\\") + 1, ListaDirectorio[indice].IndexOf(".") - ListaDirectorio[indice].IndexOf("\\") - 1);
             }
 
             return ListaDirectorio;
@@ -73,9 +60,24 @@ namespace CiudadesCombobox.API
             ListaCiudades = File.ReadAllLines(DIRECTORIO+nombre+EXTENSION);
 
 
-
             return ListaCiudades;
 
+        }
+
+
+
+
+        public static void EscribirFichero(string nombre, string texto)
+        {
+            // Recursos
+            StreamWriter escritor;
+
+            
+            escritor = File.AppendText(DIRECTORIO + nombre + EXTENSION);
+
+            escritor.WriteLine(texto);
+
+            escritor.Close();
         }
 
     }
